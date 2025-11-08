@@ -13,7 +13,9 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node3D):
-	body.physics_material_override.bounce = 20
+	if body.is_in_group("Player"):
+		body.physics_material_override.bounce = 20
 
 func _on_body_exited(body: Node3D):
-	body.physics_material_override.bounce = 0
+	if body.is_in_group("Player"):
+		body.physics_material_override.bounce = 0
