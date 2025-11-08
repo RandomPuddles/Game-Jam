@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://cbmchv2i7tqwa"]
+[gd_scene load_steps=5 format=3 uid="uid://cbmchv2i7tqwa"]
+
+[sub_resource type="Environment" id="Environment_c1w88"]
+background_mode = 1
+background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r150o"]
+rough = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_idj7w"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kln2b"]
 
 [node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c1w88")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0.5)
+size = Vector3(13, 1, 14)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+physics_material_override = SubResource("PhysicsMaterial_r150o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_idj7w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+mesh = SubResource("SphereMesh_kln2b")
