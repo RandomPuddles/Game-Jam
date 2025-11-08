@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://y4sh7ttbpw7h"]
 
 [ext_resource type="Script" uid="uid://8ety5g622ew0" path="res://Code/marble.gd" id="1_4ln81"]
-[ext_resource type="Texture2D" uid="uid://wd6vvobogfn4" path="res://Assets/kenney_prototype-textures/PNG/Purple/texture_02.png" id="2_2xo18"]
+[ext_resource type="Texture2D" uid="uid://1hbybco83e7l" path="res://Assets/kenney_prototype-textures/PNG/Dark/texture_04.png" id="2_4ln81"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1q3qd"]
 friction = 3.15
@@ -10,7 +10,7 @@ rough = true
 [sub_resource type="SphereShape3D" id="SphereShape3D_xett3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbw6q"]
-albedo_texture = ExtResource("2_2xo18")
+albedo_texture = ExtResource("2_4ln81")
 
 [sub_resource type="SphereMesh" id="SphereMesh_6hgf6"]
 material = SubResource("StandardMaterial3D_pbw6q")
