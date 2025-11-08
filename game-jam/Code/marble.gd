@@ -51,17 +51,6 @@ func _physics_process(_delta: float) -> void:
 		physics_material_override.friction = ice_friction
 	else:
 		physics_material_override.friction = normal_friction
-	
-	## raise marble's bounce if on object in group "Bounce"
-	#var on_bounce: bool = false
-	#var bodies3 = get
-	#for body in bodies3:
-		#if body.is_in_group("Bounce"):
-			#on_bounce = true
-	#if on_bounce:
-		#physics_material_override.bounce = bounce
-	#else:
-		#physics_material_override.bounce = normal_bounce
 
 func _exit_tree() -> void:
 	pass
