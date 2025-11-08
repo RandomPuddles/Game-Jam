@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5ah7dyc5a1js"]
+
+[ext_resource type="Script" uid="uid://bmletyqy55cwk" path="res://Code/SpeedBoost.gd" id="1_04vgg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dsw5g"]
+height = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_04vgg"]
+height = 1.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_04vgg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CylinderShape3D_dsw5g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_04vgg")
