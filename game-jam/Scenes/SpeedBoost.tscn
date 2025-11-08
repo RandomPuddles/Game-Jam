@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b5ah7dyc5a1js"]
+
+[ext_resource type="Script" uid="uid://cpjgu6461sf0j" path="res://Code/SpeedBoost.gd" id="1_04vgg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wpdel"]
+size = Vector3(3, 1, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpdel"]
+albedo_color = Color(0.92076373, 0.30924568, 0.99999994, 1)
+metallic = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n8q4g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qrhnd"]
+size = Vector3(3, 1, 3)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="SpeedBoost" type="Area3D" parent="."]
+script = ExtResource("1_04vgg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpeedBoost"]
+shape = SubResource("BoxShape3D_wpdel")
+debug_color = Color(1.0829283, 1.0829283, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SpeedBoost/CollisionShape3D"]
+material_override = SubResource("StandardMaterial3D_wpdel")
+material_overlay = SubResource("StandardMaterial3D_n8q4g")
+transparency = 0.25
+mesh = SubResource("BoxMesh_qrhnd")
+skeleton = NodePath("../..")
