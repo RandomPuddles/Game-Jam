@@ -18,12 +18,13 @@ environment = SubResource("Environment_c1w88")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.75880545, 2.8469987e-08, -0.65131736, 0.65131736, -3.316844e-08, 0.75880545, 0, -1, -4.371139e-08, 0, 15.873002, 0)
 
-[node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
+[node name="Camera3D" type="Camera3D" parent="." groups=["Camera", "the3DCamera"]]
 transform = Transform3D(0.7071068, 0.35141364, -0.6136029, 0, 0.8677655, 0.49697393, 0.7071068, -0.35141364, 0.6136029, -5.8723927, 4.37375, 5.864383)
 projection = 1
 size = 10.71
 
 [node name="Marble" parent="." instance=ExtResource("2_idj7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5257922, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0

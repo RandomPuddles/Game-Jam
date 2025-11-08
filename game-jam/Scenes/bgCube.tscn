@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgyrfggc7ucyg"]
+[gd_scene load_steps=8 format=3 uid="uid://cgyrfggc7ucyg"]
 
+[ext_resource type="Script" uid="uid://dtrwr7s8vt45g" path="res://Scenes/bg_cube.gd" id="1_cify0"]
 [ext_resource type="Texture2D" uid="uid://r4hisxeewdhq" path="res://Assets/marbleFloor.png" id="1_pkxpd"]
 [ext_resource type="Texture2D" uid="uid://d4gesxi4tkv6f" path="res://Assets/Ralsei_overworld_splat.png" id="2_2uurt"]
 [ext_resource type="PackedScene" uid="uid://cbmchv2i7tqwa" path="res://Scenes/Main.tscn" id="2_4hbil"]
@@ -24,25 +25,22 @@ func _process(delta: float) -> void:
 [sub_resource type="ViewportTexture" id="ViewportTexture_sebpc"]
 viewport_path = NodePath("myViewport")
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("ralsei_ref", "bg_ref")]
+script = ExtResource("1_cify0")
+ralsei_ref = NodePath("CanvasGroupTop/ralsei")
+bg_ref = NodePath("CanvasGroupBottom/theBackground")
 
-[node name="ralsei" type="TextureRect" parent="."]
+[node name="CanvasGroupTop" type="CanvasGroup" parent="."]
 z_index = 2
-offset_left = 468.0
-offset_top = 438.51154
-offset_right = 619.0
-offset_bottom = 954.51154
-texture = ExtResource("2_2uurt")
-expand_mode = 4
-stretch_mode = 4
+position = Vector2(468, 325.51154)
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -18.0
-offset_top = -41.0
-offset_right = 1178.0
-offset_bottom = 1521.4227
-texture = ExtResource("1_pkxpd")
-expand_mode = 4
+[node name="ralsei" type="Sprite2D" parent="CanvasGroupTop"]
+position = Vector2(1, 0)
+
+[node name="ralseipic" type="TextureRect" parent="CanvasGroupTop/ralsei"]
+offset_right = 151.0
+offset_bottom = 97.488464
+texture = ExtResource("2_2uurt")
 stretch_mode = 4
 
 [node name="TextureRect2" type="TextureRect" parent="."]
@@ -52,13 +50,13 @@ offset_bottom = 648.0
 texture = ExtResource("2_sebpc")
 script = SubResource("GDScript_sebpc")
 
-[node name="myViewport" type="SubViewport" parent="."]
+[node name="myViewport" type="SubViewport" parent="." groups=["view"]]
 transparent_bg = true
 size = Vector2i(1000, 600)
 
-[node name="Node3D" parent="myViewport" instance=ExtResource("2_4hbil")]
+[node name="Node3DScene" parent="myViewport" instance=ExtResource("2_4hbil")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2DViewport" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(587, 324.00003)
 scale = Vector2(0.99399996, 1.08)
@@ -66,3 +64,15 @@ texture = SubResource("ViewportTexture_sebpc")
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 3.7657003, 0)
+
+[node name="CanvasGroupBottom" type="CanvasGroup" parent="."]
+
+[node name="theBackground" type="Sprite2D" parent="CanvasGroupBottom"]
+position = Vector2(-18, -41)
+
+[node name="bgDoodle" type="TextureRect" parent="CanvasGroupBottom/theBackground"]
+offset_right = 1196.0
+offset_bottom = 1562.4227
+texture = ExtResource("1_pkxpd")
+expand_mode = 4
+stretch_mode = 4
