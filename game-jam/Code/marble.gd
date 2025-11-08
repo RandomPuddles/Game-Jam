@@ -33,7 +33,7 @@ func _physics_process(_delta: float) -> void:
 		# check if touching the floor (or really any CSGBox3D)
 		var bodies = get_colliding_bodies()
 		for body in bodies:
-			if body is CSGBox3D:
+			if body is CSGShape3D:
 				apply_impulse(Vector3(0, 1, 0) * jump_force)
 	current_move_force = move_force # reset current_move_force back to original move_force after boosting
 	

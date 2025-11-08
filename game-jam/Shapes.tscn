@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c8564fqu32aa8"]
+
+[node name="Node3D" type="Node3D"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27173233, -0.16149211, 0)
+radius = 1.9824219
+height = 3.385254
