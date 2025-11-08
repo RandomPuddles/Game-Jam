@@ -6,6 +6,10 @@ var current_move_force: float = 10.0
 @export var boost_multiple: float = 3.0
 var camera_3d : Camera3D
 @export var jump_force: float = 5.0
+@export var normal_friction: float = 3.15
+@export var ice_friction: float = 0.30
+@export var normal_bounce: float = 0.0
+@export var bounce: float = 20.0
 
 func _ready():
 	camera_3d = get_tree().current_scene.get_node("Camera3D")
@@ -36,6 +40,28 @@ func _physics_process(_delta: float) -> void:
 	# clamp rotational velocity
 	if angular_velocity.length() > max_ang_speed:
 		angular_velocity = angular_velocity.normalized() * max_ang_speed
+	
+	# lower friction if on object in group "Ice"
+	var on_ice: bool = false
+	var bodies2 = get_colliding_bodies()
+	for body in bodies2:
+		if body.is_in_group("Ice"):
+			on_ice = true
+	if on_ice:
+		physics_material_override.friction = ice_friction
+	else:
+		physics_material_override.friction = normal_friction
+	
+	## raise marble's bounce if on object in group "Bounce"
+	#var on_bounce: bool = false
+	#var bodies3 = get
+	#for body in bodies3:
+		#if body.is_in_group("Bounce"):
+			#on_bounce = true
+	#if on_bounce:
+		#physics_material_override.bounce = bounce
+	#else:
+		#physics_material_override.bounce = normal_bounce
 
 func _exit_tree() -> void:
 	pass

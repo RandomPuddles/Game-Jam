@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbmchv2i7tqwa"]
+[gd_scene load_steps=7 format=3 uid="uid://cbmchv2i7tqwa"]
 
 [ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_idj7w"]
+[ext_resource type="Script" uid="uid://cuiblagmhs3sg" path="res://Scenes/bounce_area_3d.gd" id="2_kln2b"]
 
 [sub_resource type="Environment" id="Environment_c1w88"]
 background_mode = 1
@@ -9,6 +10,9 @@ background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1gob"]
 albedo_texture = ExtResource("1_kln2b")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_idj7w"]
+size = Vector3(12.934204, 0.81140137, 12.903931)
 
 [node name="Node3D" type="Node3D"]
 
@@ -24,7 +28,26 @@ projection = 1
 size = 10.71
 
 [node name="Floor" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 1)
+material_override = SubResource("StandardMaterial3D_v1gob")
+use_collision = true
+size = Vector3(13, 1, 11)
+
+[node name="Bouncy_Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2220783, -2.0001683, -8.048067)
+material_override = SubResource("StandardMaterial3D_v1gob")
+use_collision = true
+size = Vector3(13, 1, 13)
+
+[node name="Area3D" type="Area3D" parent="Bouncy_Floor" groups=["Bounce"]]
+script = ExtResource("2_kln2b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bouncy_Floor/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026062012, 0.48413873, -0.02166748)
+shape = SubResource("BoxShape3D_idj7w")
+
+[node name="Icey_Floor" type="CSGBox3D" parent="." groups=["Ice"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0311594, -1.9925857, -8.150128)
 material_override = SubResource("StandardMaterial3D_v1gob")
 use_collision = true
 size = Vector3(13, 1, 13)
