@@ -13,7 +13,7 @@ background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
 albedo_texture = ExtResource("1_kln2b")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_idj7w"]
-size = Vector3(12.934204, 0.81140137, 12.903931)
+size = Vector3(12.934204, 0.81140137, 14.544861)
 
 [node name="Node3D" type="Node3D"]
 
@@ -44,8 +44,9 @@ size = Vector3(20.703125, 1, 20.276367)
 script = ExtResource("2_kln2b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bouncy_Floor/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026062012, 0.48413873, -0.02166748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026062012, 1.1607606, 0.7987976)
 shape = SubResource("BoxShape3D_idj7w")
+disabled = true
 
 [node name="Icey_Floor" type="CSGBox3D" parent="." groups=["Ice"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.469813, -1.8536966, 2.2679462)
