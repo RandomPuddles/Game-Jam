@@ -1,27 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cbmchv2i7tqwa"]
+[gd_scene load_steps=5 format=3 uid="uid://cbmchv2i7tqwa"]
 
-[ext_resource type="Texture2D" uid="uid://but0qbg4j68wn" path="res://Assets/kenney_prototype-textures/PNG/Green/texture_02.png" id="1_idj7w"]
-[ext_resource type="Texture2D" uid="uid://f5yv5bjjatly" path="res://Assets/kenney_prototype-textures/PNG/Dark/texture_01.png" id="2_kln2b"]
-[ext_resource type="Script" uid="uid://8ety5g622ew0" path="res://Scenes/marble.gd" id="2_rgh2o"]
+[ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="1_kln2b"]
+[ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_idj7w"]
 
 [sub_resource type="Environment" id="Environment_c1w88"]
 background_mode = 1
 background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rgh2o"]
-albedo_texture = ExtResource("1_idj7w")
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_r150o"]
-friction = 3.15
-rough = true
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_idj7w"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbw6q"]
-albedo_texture = ExtResource("2_kln2b")
-
-[sub_resource type="SphereMesh" id="SphereMesh_kln2b"]
-material = SubResource("StandardMaterial3D_pbw6q")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1gob"]
+albedo_texture = ExtResource("1_kln2b")
 
 [node name="Node3D" type="Node3D"]
 
@@ -31,24 +18,15 @@ environment = SubResource("Environment_c1w88")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.75880545, 2.8469987e-08, -0.65131736, 0.65131736, -3.316844e-08, 0.75880545, 0, -1, -4.371139e-08, 0, 15.873002, 0)
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
 transform = Transform3D(0.7071068, 0.35141364, -0.6136029, 0, 0.8677655, 0.49697393, 0.7071068, -0.35141364, 0.6136029, -5.8723927, 4.37375, 5.864383)
 projection = 1
 size = 10.71
 
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-material_override = SubResource("StandardMaterial3D_rgh2o")
+material_override = SubResource("StandardMaterial3D_v1gob")
 use_collision = true
 size = Vector3(13, 1, 13)
 
-[node name="Marble" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-physics_material_override = SubResource("PhysicsMaterial_r150o")
-script = ExtResource("2_rgh2o")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Marble"]
-shape = SubResource("SphereShape3D_idj7w")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Marble/CollisionShape3D"]
-mesh = SubResource("SphereMesh_kln2b")
+[node name="Marble" parent="." instance=ExtResource("2_idj7w")]

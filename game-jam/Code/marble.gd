@@ -1,10 +1,11 @@
 extends RigidBody3D
-@onready var camera_3d: Camera3D = $"../Camera3D"
 
-var move_force :float = 10.0
-var max_ang_speed :float = 50.0
+@export var move_force :float = 10.0
+@export var max_ang_speed :float = 50.0
+var camera_3d : Camera3D
 
 func _ready():
+	camera_3d = get_tree().current_scene.get_node("Camera3D")
 	angular_damp = 1.5
 
 func _process(_delta):
