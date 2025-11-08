@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cctmgsebcpn2l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wpdel"]
+size = Vector3(3, 1, 3)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Trampoline" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trampoline"]
+shape = SubResource("BoxShape3D_wpdel")
+debug_color = Color(1.0701996, 0.6659107, 1.0831801, 1)
