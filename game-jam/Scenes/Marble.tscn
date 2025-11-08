@@ -15,17 +15,17 @@ albedo_texture = ExtResource("2_4ln81")
 [sub_resource type="SphereMesh" id="SphereMesh_6hgf6"]
 material = SubResource("StandardMaterial3D_pbw6q")
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D" type="Node3D" groups=["Player"]]
 
-[node name="Marble" type="RigidBody3D" parent="."]
+[node name="Marble" type="RigidBody3D" parent="." groups=["Player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 physics_material_override = SubResource("PhysicsMaterial_1q3qd")
 contact_monitor = true
 max_contacts_reported = 10
 script = ExtResource("1_4ln81")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Marble"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marble" groups=["Player"]]
 shape = SubResource("SphereShape3D_xett3")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Marble/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marble/CollisionShape3D" groups=["Player"]]
 mesh = SubResource("SphereMesh_6hgf6")
