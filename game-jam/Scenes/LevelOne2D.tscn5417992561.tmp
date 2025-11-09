@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://bp7lw3eum073q"]
+
+[ext_resource type="Script" uid="uid://b11rsa3gc0siv" path="res://LV1_LAYERING.gd" id="1_jf4pu"]
+[ext_resource type="PackedScene" uid="uid://vmj237ixib46" path="res://LevelOne1.tscn" id="2_c72eo"]
+[ext_resource type="Texture2D" uid="uid://b4m3nvfco6hb" path="res://Assets/lv1plat1p2.png" id="3_i4gho"]
+[ext_resource type="Texture2D" uid="uid://v8x38u60ex6j" path="res://Assets/lv1plat1.png" id="3_v0p3s"]
+[ext_resource type="Texture2D" uid="uid://dtghfj8n1ylw5" path="res://Assets/lv1plat2.png" id="4_i4gho"]
+[ext_resource type="Texture2D" uid="uid://cr3bkwjfydejx" path="res://Assets/lv1plat3.png" id="5_fdac2"]
+[ext_resource type="Texture2D" uid="uid://dfl2tf58juyei" path="res://Assets/lv1plat4.png" id="6_5xtnd"]
+[ext_resource type="Texture2D" uid="uid://pmlaaxvdyhsg" path="res://Assets/lv1plat5.png" id="7_digd3"]
+[ext_resource type="Texture2D" uid="uid://dwvjrvcgfncoq" path="res://Assets/lv1wall1.png" id="8_raix2"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_td8ke"]
+viewport_path = NodePath("myViewport")
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("scene3D")]
+script = ExtResource("1_jf4pu")
+scene3D = NodePath("myViewport/Node3D")
+
+[node name="myViewport" type="SubViewport" parent="." groups=["view"]]
+transparent_bg = true
+size = Vector2i(1000, 600)
+
+[node name="Node3D" parent="myViewport" instance=ExtResource("2_c72eo")]
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 7.5314007, 0)
+
+[node name="CanvasGroupSprites" type="CanvasGroup" parent="."]
+
+[node name="Sprite2DViewport" type="Sprite2D" parent="CanvasGroupSprites"]
+z_index = 3
+position = Vector2(560, 322)
+texture = SubResource("ViewportTexture_td8ke")
+
+[node name="plat1p2" type="Sprite2D" parent="CanvasGroupSprites"]
+position = Vector2(543, 326)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("3_i4gho")
+
+[node name="plat1" type="Sprite2D" parent="CanvasGroupSprites"]
+position = Vector2(543, 326)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("3_v0p3s")
+
+[node name="plat2" type="Sprite2D" parent="CanvasGroupSprites"]
+position = Vector2(543, 326)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("4_i4gho")
+
+[node name="plat3" type="Sprite2D" parent="CanvasGroupSprites"]
+position = Vector2(543, 326)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("5_fdac2")
+
+[node name="plat4" type="Sprite2D" parent="CanvasGroupSprites"]
+position = Vector2(543, 326)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("6_5xtnd")
+
+[node name="plat5" type="Sprite2D" parent="CanvasGroupSprites"]
+position = Vector2(543, 326)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("7_digd3")
+
+[node name="wall1" type="Sprite2D" parent="CanvasGroupSprites"]
+position = Vector2(543, 326)
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("8_raix2")
