@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cunlbd1wf56mu"]
+[gd_scene load_steps=5 format=3 uid="uid://qd6igivn3glq"]
 
 [ext_resource type="Texture2D" uid="uid://cddeforaifwce" path="res://Assets/kenney_prototype-textures/PNG/Light/texture_02.png" id="1_s3w6a"]
-[ext_resource type="Script" uid="uid://d32d3sc0jba0a" path="res://ice_area_3d.gd" id="2_s5kxe"]
+[ext_resource type="Script" uid="uid://d32d3sc0jba0a" path="res://Code/ice_area_3d.gd" id="2_s5kxe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5kxe"]
 albedo_texture = ExtResource("1_s3w6a")

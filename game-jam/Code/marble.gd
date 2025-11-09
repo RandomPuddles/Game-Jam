@@ -26,10 +26,10 @@ func _physics_process(_delta: float) -> void:
 		boost_charge += 0.1
 		if boost_charge > boost_charge_max:
 			boost_charge = boost_charge_max
-		if Engine.time_scale > 0:
+		if Engine.time_scale > 0.01:
 			Engine.time_scale -= 0.05
-			if Engine.time_scale < 0.0:
-				Engine.time_scale = 0.0
+			if Engine.time_scale < 0.01:
+				Engine.time_scale = 0.01
 	# resume time and boost when the Boost button is released
 	if Input.is_action_just_released("Boost"):
 		Engine.time_scale = 1
@@ -63,7 +63,7 @@ func _physics_process(_delta: float) -> void:
 	if angular_velocity.length() > max_ang_speed:
 		angular_velocity = angular_velocity.normalized() * max_ang_speed
 	
-	if Input.is_action_pressed("Restart"):
+	if Input.is_action_pressed("Restart"): # reload the current scene on Restart button pressed
 		get_tree().reload_current_scene()
 
 func _exit_tree() -> void:

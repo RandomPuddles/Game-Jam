@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnqthfp4klsvl"]
+
+[ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="1_lvnx0"]
+[ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_owsbw"]
+[ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="3_naapn"]
+[ext_resource type="PackedScene" uid="uid://dl2h3gy7642d5" path="res://Scenes/Trampoline.tscn" id="4_owsbw"]
+
+[sub_resource type="Environment" id="Environment_c1w88"]
+background_mode = 1
+background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1gob"]
+albedo_texture = ExtResource("3_naapn")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c1w88")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.75880545, 2.8469987e-08, -0.65131736, 0.65131736, -3.316844e-08, 0.75880545, 0, -1, -4.371139e-08, 0, 15.873002, 0)
+
+[node name="TimerLabel" parent="." instance=ExtResource("1_lvnx0")]
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
+transform = Transform3D(0.7071068, 0.35141364, -0.6136029, 0, 0.8677655, 0.49697393, 0.7071068, -0.35141364, 0.6136029, -24.740404, 17.101988, 15.86338)
+projection = 1
+size = 12.735
+
+[node name="Marble" parent="." instance=ExtResource("2_owsbw")]
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -1.5)
+material_override = SubResource("StandardMaterial3D_v1gob")
+use_collision = true
+size = Vector3(3, 1, 6)
+
+[node name="Floor2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.8260353, -16.603983)
+material_override = SubResource("StandardMaterial3D_v1gob")
+use_collision = true
+size = Vector3(3, 1, 6)
+
+[node name="Trampoline" parent="." instance=ExtResource("4_owsbw")]
+transform = Transform3D(0.33452106, 0, 0, 0, 1, 0, 0, 0, 0.29747495, 0, -5.752195, -8.890415)
