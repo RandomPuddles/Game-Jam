@@ -10,9 +10,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func _on_timeout() -> void:
+func _on_timeout() -> void: # called every 0.1 seconds
 	level_time_limit -= 0.1
-	time_left_label.text = "Time Left: %.1f" % level_time_limit
-	if level_time_limit <= 0:
-		level_time_limit = 0
-		get_tree().quit()
+	if level_time_limit >= 0: # print time left if >= 0
+		time_left_label.text = "Time Left: %.1f" % level_time_limit
+	if level_time_limit <= 0: # end level
+		get_tree().reload_current_scene()

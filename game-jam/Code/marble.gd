@@ -62,6 +62,9 @@ func _physics_process(_delta: float) -> void:
 	# clamp rotational velocity
 	if angular_velocity.length() > max_ang_speed:
 		angular_velocity = angular_velocity.normalized() * max_ang_speed
+	
+	if Input.is_action_pressed("Restart"):
+		get_tree().reload_current_scene()
 
 func _exit_tree() -> void:
 	pass
