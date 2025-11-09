@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbmchv2i7tqwa"]
+[gd_scene load_steps=10 format=3 uid="uid://cbmchv2i7tqwa"]
 
 [ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_idj7w"]
-[ext_resource type="PackedScene" uid="uid://ckx2wnm68i6y7" path="res://Scenes/Trampoline.tscn" id="4_pbw6q"]
-[ext_resource type="PackedScene" uid="uid://cunlbd1wf56mu" path="res://Scenes/Ice_Floor.tscn" id="4_rgh2o"]
-[ext_resource type="PackedScene" uid="uid://b2heri7rvl10r" path="res://Scenes/PhysicsBox.tscn" id="5_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://dl2h3gy7642d5" path="res://Scenes/Trampoline.tscn" id="4_pbw6q"]
+[ext_resource type="PackedScene" uid="uid://qd6igivn3glq" path="res://Scenes/Ice_Floor.tscn" id="4_rgh2o"]
+[ext_resource type="PackedScene" uid="uid://b2heri7rvl10r" path="res://Scenes/physicsBox.tscn" id="5_pbw6q"]
+[ext_resource type="Script" uid="uid://d3pfnvodkobij" path="res://Scenes/timer.gd" id="6_v1gob"]
 
 [sub_resource type="Environment" id="Environment_c1w88"]
 background_mode = 1
@@ -12,6 +13,9 @@ background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1gob"]
 albedo_texture = ExtResource("1_kln2b")
+
+[sub_resource type="LabelSettings" id="LabelSettings_v1gob"]
+font_color = Color(0, 0, 0, 1)
 
 [node name="Node3D" type="Node3D"]
 
@@ -42,3 +46,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.722863, -1.404881, -10.8633
 
 [node name="Node3D" parent="." instance=ExtResource("5_pbw6q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.71531, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 0.1
+autostart = true
+script = ExtResource("6_v1gob")
+
+[node name="TimeLeftLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_v1gob")
+
+[connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer/Timer" method="_on_timeout"]
