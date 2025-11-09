@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgyrfggc7ucyg"]
+
+[ext_resource type="Script" uid="uid://dtrwr7s8vt45g" path="res://Scenes/bg_cube.gd" id="1_cify0"]
+[ext_resource type="Texture2D" uid="uid://r4hisxeewdhq" path="res://Assets/marbleFloor.png" id="1_pkxpd"]
+[ext_resource type="Texture2D" uid="uid://d4gesxi4tkv6f" path="res://Assets/Ralsei_overworld_splat.png" id="2_2uurt"]
+[ext_resource type="PackedScene" uid="uid://cbmchv2i7tqwa" path="res://Scenes/Main.tscn" id="2_4hbil"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sebpc"]
+viewport_path = NodePath("myViewport")
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("scene3D")]
+script = ExtResource("1_cify0")
+scene3D = NodePath("myViewport/Node3DScene")
+
+[node name="myViewport" type="SubViewport" parent="." groups=["view"]]
+transparent_bg = true
+size = Vector2i(1000, 600)
+
+[node name="Node3DScene" parent="myViewport" instance=ExtResource("2_4hbil")]
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 0, 3.7657003, 0)
+
+[node name="CanvasGroupSprites" type="CanvasGroup" parent="."]
+
+[node name="ralsei" type="Sprite2D" parent="CanvasGroupSprites"]
+position = Vector2(469, 325.51154)
+
+[node name="ralseipic" type="TextureRect" parent="CanvasGroupSprites/ralsei"]
+offset_right = 151.0
+offset_bottom = 97.488464
+texture = ExtResource("2_2uurt")
+stretch_mode = 4
+
+[node name="Sprite2DViewport" type="Sprite2D" parent="CanvasGroupSprites"]
+z_index = 1
+position = Vector2(587, 324.00003)
+scale = Vector2(0.99399996, 1.08)
+texture = SubResource("ViewportTexture_sebpc")
+
+[node name="theBackground" type="Sprite2D" parent="CanvasGroupSprites"]
+position = Vector2(-18, -41)
+
+[node name="bgDoodle" type="TextureRect" parent="CanvasGroupSprites/theBackground"]
+offset_right = 1196.0
+offset_bottom = 1562.4227
+texture = ExtResource("1_pkxpd")
+expand_mode = 4
+stretch_mode = 4
