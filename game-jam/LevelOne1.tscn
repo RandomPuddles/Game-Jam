@@ -14,7 +14,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.812687, 4.2076035, 16.558
 
 [node name="Camera3D" parent="." index="2"]
 transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, 13.43383, 26.387966, 14.114346)
-size = 45.409
+size = 46.458
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." index="4"]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -26.711174, 0.7043915, 1.3985713)
