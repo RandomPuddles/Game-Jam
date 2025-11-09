@@ -34,10 +34,15 @@ func _process(_delta: float) -> void:
 	#marbCoord = cam3D.unproject_position(marb.position)
 	#marbCoordBtoom = marbCoord.y + marbHeight
 	
+	#print(marb.global_position.y)
 	if is_below_plat1():
 		marblePort.z_index = plat1.z_index - 1
 	elif is_below_plat1p2():
 		marblePort.z_index = plat1p2.z_index - 1
+	elif is_below_plat2():
+		marblePort.z_index = plat2.z_index - 1
+	else:
+		marblePort.z_index = 4
 	pass
 	
 	
@@ -59,6 +64,26 @@ func is_below_plat1()->bool:
 func is_below_plat1p2()->bool:
 	# -28.4, 1.809, -10.5
 	if (marb.global_position.y < 1.809):
+		return true
+	else:
+		return false
+
+func is_below_plat2()->bool:
+	#top left
+	# -20.704, 8.264, -14.402
+	#bottom left
+	#-20.704, 1.923, -3.593
+#	if (marb.global_position.y < 8.264 \
+#	and marb.global_position.y > 1.923 \
+#	and (marb.global_position.x < -20.704 \
+#	or marb.global_position.z < -14.402)):
+#		return true
+#	else:
+#		return false
+		
+	if ((marb.global_position.x < -20.704 \
+	and marb.global_position.z < -3.593)
+	or marb.global_position.z < -14.402):
 		return true
 	else:
 		return false

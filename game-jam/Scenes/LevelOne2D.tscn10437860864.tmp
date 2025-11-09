@@ -34,7 +34,6 @@ position = Vector2(560, 322)
 texture = SubResource("ViewportTexture_td8ke")
 
 [node name="plat1p2" type="Sprite2D" parent="CanvasGroupSprites"]
-z_index = 2
 position = Vector2(543, 326)
 scale = Vector2(0.69, 0.69)
 texture = ExtResource("3_i4gho")
