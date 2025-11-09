@@ -51,7 +51,7 @@ func _process(_delta: float) -> void:
 		ralsei.z_index = 0
 	pass
 	
-	if marb3DYLevel < 0:
+	if (marb.global_position.y < 0) && ((marb.global_position.x >= 6.5) || (marb.global_position.z <= -6.5)):
 		bg.z_index = 2
 	else:
 		bg.z_index = 0

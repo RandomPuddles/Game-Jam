@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgyrfggc7ucyg"]
+[gd_scene load_steps=8 format=3 uid="uid://cgyrfggc7ucyg"]
 
 [ext_resource type="Script" uid="uid://dtrwr7s8vt45g" path="res://Scenes/bg_cube.gd" id="1_cify0"]
 [ext_resource type="Texture2D" uid="uid://r4hisxeewdhq" path="res://Assets/marbleFloor.png" id="1_pkxpd"]
 [ext_resource type="Texture2D" uid="uid://d4gesxi4tkv6f" path="res://Assets/Ralsei_overworld_splat.png" id="2_2uurt"]
 [ext_resource type="PackedScene" uid="uid://cbmchv2i7tqwa" path="res://Scenes/Main.tscn" id="2_4hbil"]
+[ext_resource type="Texture2D" uid="uid://d0u76d0ujoxhe" path="res://Assets/marbleFloorCube.png" id="4_dho4e"]
+[ext_resource type="Texture2D" uid="uid://dcyxdaeo5phcm" path="res://Assets/marbleFloorStars.png" id="6_ukme8"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_sebpc"]
 viewport_path = NodePath("myViewport")
@@ -41,10 +43,17 @@ position = Vector2(587, 324.00003)
 scale = Vector2(0.99399996, 1.08)
 texture = SubResource("ViewportTexture_sebpc")
 
+[node name="bgStars" type="Sprite2D" parent="CanvasGroupSprites"]
+position = Vector2(729, 457)
+texture = ExtResource("6_ukme8")
+
 [node name="theBackground" type="Sprite2D" parent="CanvasGroupSprites"]
-position = Vector2(-18, -41)
+position = Vector2(586, 364)
+scale = Vector2(0.807, 0.807)
+texture = ExtResource("4_dho4e")
 
 [node name="bgDoodle" type="TextureRect" parent="CanvasGroupSprites/theBackground"]
+visible = false
 offset_right = 1196.0
 offset_bottom = 1562.4227
 texture = ExtResource("1_pkxpd")
