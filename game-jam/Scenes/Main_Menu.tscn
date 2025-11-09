@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dm4n6qoku25nu"]
+[gd_scene load_steps=3 format=3 uid="uid://dm4n6qoku25nu"]
 
 [ext_resource type="Script" uid="uid://cs5eqn67cpffk" path="res://Code/start_button.gd" id="1_c4tk2"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_c4tk2"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -12,6 +14,7 @@ offset_top = 273.0
 offset_right = 582.0
 offset_bottom = 304.0
 text = "Start"
+icon = SubResource("ImageTexture_c4tk2")
 script = ExtResource("1_c4tk2")
 
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
