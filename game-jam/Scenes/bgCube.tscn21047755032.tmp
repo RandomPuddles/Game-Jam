@@ -24,12 +24,9 @@ transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70
 [node name="CanvasGroupSprites" type="CanvasGroup" parent="."]
 
 [node name="ralsei" type="Sprite2D" parent="CanvasGroupSprites"]
-z_index = 2
-position = Vector2(484, 326.51154)
-texture = ExtResource("2_2uurt")
+position = Vector2(469, 325.51154)
 
 [node name="ralseipic" type="TextureRect" parent="CanvasGroupSprites/ralsei"]
-visible = false
 offset_right = 151.0
 offset_bottom = 97.488464
 texture = ExtResource("2_2uurt")
