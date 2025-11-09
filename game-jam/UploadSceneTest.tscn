@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0j0ugxi482qy"]
+
+[ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="1_o6dx4"]
+[ext_resource type="PackedScene" uid="uid://cunlbd1wf56mu" path="res://Scenes/Ice_Floor.tscn" id="2_xp2li"]
+[ext_resource type="PackedScene" uid="uid://ckx2wnm68i6y7" path="res://Scenes/Trampoline.tscn" id="3_rlonc"]
+[ext_resource type="PackedScene" uid="uid://b2heri7rvl10r" path="res://Scenes/physicsBox.tscn" id="4_xp2li"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_o6dx4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4719214, 10.917605)
+
+[node name="Node3D2" parent="." instance=ExtResource("2_xp2li")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 56.24005, 3.016283, -55.410908)
+
+[node name="Node3D3" parent="." instance=ExtResource("3_rlonc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.440353, 8.327466, 35.447548)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 10.501706, 20.980015, 15.953703)
+projection = 1
+size = 38.874
+
+[node name="Node3D4" parent="." instance=ExtResource("4_xp2li")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7492332, 7.7783566, 4.7315607)
+
+[node name="Node3D4" parent="Node3D4" instance=ExtResource("4_xp2li")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.617138, 8.527464, 0)
+
+[node name="Node3D4" parent="Node3D4/Node3D4" instance=ExtResource("4_xp2li")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.527464, 0)
+
+[node name="Node3D4" parent="Node3D4/Node3D4/Node3D4" instance=ExtResource("4_xp2li")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.527464, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7302696, 0.6831591, 0, -0.6831591, 0.7302696, 0, 16.092789, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.83392334, 3.7679534)
+use_collision = true
+radius = 35.96289
+height = 0.33215332
