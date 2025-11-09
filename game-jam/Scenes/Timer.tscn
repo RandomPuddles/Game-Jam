@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d3pfnvodkobij" path="res://Code/timer.gd" id="1_notwg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mdnnd"]
-font_size = 30
+font_size = 8
 font_color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D"]
