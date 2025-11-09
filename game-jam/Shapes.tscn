@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c8564fqu32aa8"]
+[gd_scene load_steps=0 format=3 uid="uid://c8564fqu32aa8"]
 
 [node name="Node3D" type="Node3D"]
 visible = false
