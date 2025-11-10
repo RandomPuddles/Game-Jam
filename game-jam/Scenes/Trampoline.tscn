@@ -1,24 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://dl2h3gy7642d5"]
 
-[ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="1_hqes8"]
-[ext_resource type="Script" uid="uid://cuiblagmhs3sg" path="res://Code/bounce_area_3d.gd" id="2_2tg7s"]
+[ext_resource type="Texture2D" uid="uid://j3y7sopofywe" path="res://Assets/kenney_prototype-textures/PNG/Purple/texture_13.png" id="1_hqes8"]
+[ext_resource type="Script" path="res://Code/bounce_area_3d.gd" id="2_2tg7s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4b0je"]
 albedo_texture = ExtResource("1_hqes8")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1lgx0"]
-size = Vector3(12.934204, 0.81140137, 12.903931)
+size = Vector3(25.5, 1.5, 25.5)
 
 [node name="Node3D" type="Node3D" groups=["Bounce"]]
 
-[node name="Bouncy_Floor" type="CSGBox3D" parent="." groups=["Bounce"]]
+[node name="sa" type="CSGBox3D" parent="." groups=["Bounce"]]
 material_override = SubResource("StandardMaterial3D_4b0je")
 use_collision = true
-size = Vector3(13, 1, 13)
+size = Vector3(25, 1, 25)
 
-[node name="Area3D" type="Area3D" parent="Bouncy_Floor" groups=["Bounce"]]
+[node name="Area3D" type="Area3D" parent="sa" groups=["Bounce"]]
 script = ExtResource("2_2tg7s")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bouncy_Floor/Area3D" groups=["Bounce"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026062012, 0.48413873, -0.02166748)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sa/Area3D" groups=["Bounce"]]
 shape = SubResource("BoxShape3D_1lgx0")
