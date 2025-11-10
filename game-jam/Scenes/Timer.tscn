@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl5ixt04n54dm"]
+
+[ext_resource type="Script" uid="uid://d3pfnvodkobij" path="res://Code/timer.gd" id="1_notwg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mdnnd"]
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 0.1
+autostart = true
+script = ExtResource("1_notwg")
+
+[node name="TimeLeftLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_mdnnd")
+
+[connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer/Timer" method="_on_timeout"]

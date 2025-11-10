@@ -10,7 +10,11 @@ rough = true
 [sub_resource type="SphereShape3D" id="SphereShape3D_xett3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbw6q"]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("2_4ln81")
+roughness = 0.0
+rim = 0.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_6hgf6"]
 material = SubResource("StandardMaterial3D_pbw6q")

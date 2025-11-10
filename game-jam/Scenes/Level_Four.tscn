@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://bm4p7owa0n364"]
+
+[ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="1_yw85p"]
+[ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_foqkk"]
+[ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="3_8bxty"]
+[ext_resource type="PackedScene" uid="uid://qd6igivn3glq" path="res://Scenes/Ice_Floor.tscn" id="4_yw85p"]
+
+[sub_resource type="Environment" id="Environment_c1w88"]
+background_mode = 1
+background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1gob"]
+albedo_texture = ExtResource("3_8bxty")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c1w88")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.75880545, 2.8469987e-08, -0.65131736, 0.65131736, -3.316844e-08, 0.75880545, 0, -1, -4.371139e-08, 0, 15.873002, 0)
+
+[node name="TimerLabel" parent="." instance=ExtResource("1_yw85p")]
+
+[node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
+transform = Transform3D(0.7071068, 0.35141364, -0.6136029, 0, 0.8677655, 0.49697393, 0.7071068, -0.35141364, 0.6136029, -19.022722, 17.101988, 34.42594)
+projection = 1
+size = 17.75
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0.52651954)
+material_override = SubResource("StandardMaterial3D_v1gob")
+use_collision = true
+size = Vector3(3, 1, 6)
+
+[node name="Node3D2" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(0.23676825, 0, 0, 0, 0.88005406, -0.1952006, 0, 0.4854952, 0.3538388, 0, -1.7040783, 5.579339)
+
+[node name="Node3D" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(0.24655318, 0, 0, 0, 1, 0, 0, 0, 0.4435994, 0, -2.980018, 10.237207)
+
+[node name="Node3D3" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(-1.0777182e-08, 0, 0.4435994, 0, 1, 0, -0.24655318, 0, -1.9390345e-08, 4.2746058, -2.980018, 11.52575)
+
+[node name="Node3D4" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(3.2361214e-08, -0.48549524, -0.3538388, 4.3836832e-16, 0.88005394, -0.19520059, 0.24677943, 8.9892666e-08, 4.0582922e-08, 9.197426, -1.8795834, 11.525958)
+
+[node name="Node3D5" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(0.043383617, 0, 0, 0, 1, 0, 0, 0, 0.8614271, 11.513088, -0.674011, 15.535858)
+
+[node name="Node3D6" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(-6.249834e-09, 0, 0.4435994, -0.069845416, 0.66735226, -9.472172e-09, -0.12475882, -0.37361282, -1.6919321e-08, 8.366148, -0.77050996, 20.325792)
+
+[node name="Floor2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1383662, -1.4325304, 20.150726)
+material_override = SubResource("StandardMaterial3D_v1gob")
+use_collision = true
+size = Vector3(3, 1, 2.1088867)
+
+[node name="Marble2" parent="." instance=ExtResource("2_foqkk")]
+
+[node name="Floor3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0.52651954)
+material_override = SubResource("StandardMaterial3D_v1gob")
+use_collision = true
+size = Vector3(3, 1, 6)
+
+[node name="Node3D7" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(0.23676825, 0, 0, 0, 0.88005406, -0.1952006, 0, 0.4854952, 0.3538388, 0, -1.7040783, 5.579339)
+
+[node name="Node3D8" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(0.24655318, 0, 0, 0, 1, 0, 0, 0, 0.4435994, 0, -2.980018, 10.237207)
+
+[node name="Node3D9" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(-1.0777182e-08, 0, 0.4435994, 0, 1, 0, -0.24655318, 0, -1.9390345e-08, 4.2746058, -2.980018, 11.52575)
+
+[node name="Node3D10" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(3.2361214e-08, -0.48549524, -0.3538388, 4.3836832e-16, 0.88005394, -0.19520059, 0.24677943, 8.9892666e-08, 4.0582922e-08, 9.197426, -1.8795834, 11.525958)
+
+[node name="Node3D11" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(0.043383617, 0, 0, 0, 1, 0, 0, 0, 0.8614271, 11.513088, -0.674011, 15.535858)
+
+[node name="Node3D12" parent="." instance=ExtResource("4_yw85p")]
+transform = Transform3D(-6.249834e-09, 0, 0.4435994, -0.069845416, 0.66735226, -9.472172e-09, -0.12475882, -0.37361282, -1.6919321e-08, 8.366148, -0.77050996, 20.325792)
+
+[node name="Floor4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1383662, -1.4325304, 20.150726)
+material_override = SubResource("StandardMaterial3D_v1gob")
+use_collision = true
+size = Vector3(3, 1, 2.1088867)

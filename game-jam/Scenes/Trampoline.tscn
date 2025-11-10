@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckx2wnm68i6y7"]
+[gd_scene load_steps=5 format=3 uid="uid://dl2h3gy7642d5"]
 
 [ext_resource type="Texture2D" uid="uid://j3y7sopofywe" path="res://Assets/kenney_prototype-textures/PNG/Purple/texture_13.png" id="1_hqes8"]
 [ext_resource type="Script" path="res://Code/bounce_area_3d.gd" id="2_2tg7s"]
