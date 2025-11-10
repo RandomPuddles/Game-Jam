@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbmchv2i7tqwa"]
+[gd_scene load_steps=3 format=3 uid="uid://cbmchv2i7tqwa"]
 
+[ext_resource type="Script" uid="uid://xevy5wwexdpf" path="res://Scenes/main_music_player.gd" id="1_idj7w"]
 [ext_resource type="PackedScene" uid="uid://dm4n6qoku25nu" path="res://Scenes/Main_Menu.tscn" id="1_r150o"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
+script = ExtResource("1_idj7w")
 
 [node name="MainMenu" parent="." instance=ExtResource("1_r150o")]
+
+[connection signal="editor_state_changed" from="." to="." method="_on_editor_state_changed"]

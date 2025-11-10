@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://0ubdkxyc11ss"]
+[gd_scene load_steps=12 format=3 uid="uid://0ubdkxyc11ss"]
 
 [ext_resource type="PackedScene" path="res://LevelBase.tscn" id="1_56sh0"]
+[ext_resource type="Script" uid="uid://dnyaplu5nw7ji" path="res://level_3_mebe.gd" id="2_dv7lm"]
 [ext_resource type="Texture2D" uid="uid://bryg62ck40e6u" path="res://Assets/kenney_prototype-textures/PNG/Green/texture_09.png" id="2_wdxtl"]
 [ext_resource type="Script" uid="uid://di4udgkqcvljy" path="res://end_screen_loader.gd" id="3_2iak2"]
+[ext_resource type="Script" uid="uid://b2g15r388wxgi" path="res://kevin_timer.gd" id="4_1eu64"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iak2"]
 albedo_texture = ExtResource("2_wdxtl")
@@ -19,7 +21,12 @@ size = Vector3(1, 8, 1)
 background_mode = 1
 background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_dv7lm"]
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
 [node name="Node3D2" instance=ExtResource("1_56sh0")]
+script = ExtResource("2_dv7lm")
 
 [node name="CSGBox3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06836343, 0, 0.025915146)
@@ -34,6 +41,10 @@ material = SubResource("StandardMaterial3D_2iak2")
 
 [node name="Node3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49964082, 3.1199212, 19.411749)
+
+[node name="Camera3D" parent="." index="3"]
+transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, 16.139782, 23.262144, 16.478386)
+size = 30.625
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67266846, 2.0707202, 19.30976)
@@ -127,4 +138,17 @@ mesh = SubResource("RibbonTrailMesh_dv7lm")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="17"]
 environment = SubResource("Environment_wdxtl")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="18"]
+
+[node name="Timer" type="Timer" parent="CanvasLayer" index="0"]
+wait_time = 0.1
+autostart = true
+script = ExtResource("4_1eu64")
+
+[node name="TimeLeftLabel" type="Label" parent="CanvasLayer" index="1"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_dv7lm")
+
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer/Timer" method="_on_timeout"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://22l3o4opsj6j"]
+[gd_scene load_steps=11 format=3 uid="uid://22l3o4opsj6j"]
 
 [ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="1_lvnx0"]
+[ext_resource type="Script" uid="uid://cigink3cxq4gm" path="res://Scenes/level_three.gd" id="1_pm6fr"]
 [ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_owsbw"]
 [ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="3_naapn"]
 [ext_resource type="PackedScene" uid="uid://dl2h3gy7642d5" path="res://Scenes/Trampoline.tscn" id="4_owsbw"]
@@ -19,6 +20,7 @@ size = Vector3(1, 8, 1)
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_vswc5"]
 
 [node name="Node3D2" type="Node3D"]
+script = ExtResource("1_pm6fr")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c1w88")

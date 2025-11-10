@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bj4jxiwoq81k2"]
+[gd_scene load_steps=18 format=3 uid="uid://bj4jxiwoq81k2"]
 
 [ext_resource type="PackedScene" path="res://LevelBase.tscn" id="1_janhb"]
 [ext_resource type="Texture2D" uid="uid://dbodnvgs48p8s" path="res://Assets/kenney_prototype-textures/PNG/Green/texture_08.png" id="2_2tmas"]
+[ext_resource type="Script" uid="uid://csa2t2rpork2j" path="res://level_2_perchance.gd" id="2_qng2t"]
 [ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="3_374uy"]
 [ext_resource type="Texture2D" uid="uid://cp7ilrk08jlnm" path="res://Assets/kenney_prototype-textures/PNG/Orange/texture_04.png" id="3_ghtom"]
 [ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="4_ghtom"]
@@ -40,6 +41,7 @@ background_mode = 1
 background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
 
 [node name="Node3D2" instance=ExtResource("1_janhb")]
+script = ExtResource("2_qng2t")
 
 [node name="CSGBox3D" parent="." index="0"]
 transform = Transform3D(4.011585, 0, 0, 0, 1, 0, 0, 0, 2.9635735, 0.142025, -2.0776644, -0.14401627)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1avqd2r2q2yr"]
+[gd_scene load_steps=22 format=3 uid="uid://d1avqd2r2q2yr"]
 
 [ext_resource type="PackedScene" path="res://LevelBase.tscn" id="1_ximf7"]
-[ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="2_7qbg4"]
+[ext_resource type="Script" uid="uid://q6ejvupv57c2" path="res://level_one_1.gd" id="2_dqvfi"]
 [ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="2_wlcyd"]
 [ext_resource type="Script" uid="uid://ovv2gmil8xg6" path="res://level_eight_loader.gd" id="3_0lrvd"]
+[ext_resource type="Script" uid="uid://b2g15r388wxgi" path="res://kevin_timer.gd" id="4_wlcyd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqvfi"]
 albedo_texture = ExtResource("2_wlcyd")
@@ -50,7 +51,12 @@ size = Vector3(1, 8, 1)
 background_mode = 1
 background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_dqvfi"]
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
 [node name="Node3D2" instance=ExtResource("1_ximf7")]
+script = ExtResource("2_dqvfi")
 
 [node name="CSGBox3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057024956, -1.9073486e-06, -0.00010108948)
@@ -59,6 +65,10 @@ use_collision = false
 
 [node name="Node3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.812687, 4.2076035, 16.558002)
+
+[node name="Camera3D" parent="." index="2"]
+transform = Transform3D(0.7071068, -0.5, 0.5, 0, 0.7071068, 0.70710677, -0.7071068, -0.5, 0.5, 16.139782, 32.060707, 16.478386)
+size = 47.66
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." index="4"]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -26.711174, 0.7043915, 1.3985713)
@@ -140,9 +150,7 @@ material_override = SubResource("StandardMaterial3D_xfaur")
 use_collision = true
 size = Vector3(11.205673, 1.2078552, 12.998371)
 
-[node name="TimerLabel" parent="." index="16" instance=ExtResource("2_7qbg4")]
-
-[node name="Area3D" type="Area3D" parent="." index="17"]
+[node name="Area3D" type="Area3D" parent="." index="16"]
 transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, 18.37339, 4.050211, 8.478177)
 script = ExtResource("3_0lrvd")
 
@@ -154,7 +162,20 @@ shape = SubResource("BoxShape3D_wlcyd")
 transform = Transform3D(1, 0, 0, 0, 46.237354, 0, 0, 0, 1, 0, 22.345306, 0)
 mesh = SubResource("RibbonTrailMesh_dqvfi")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="18"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="17"]
 environment = SubResource("Environment_wlcyd")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="18"]
+
+[node name="Timer" type="Timer" parent="CanvasLayer" index="0"]
+wait_time = 0.1
+autostart = true
+script = ExtResource("4_wlcyd")
+
+[node name="TimeLeftLabel" type="Label" parent="CanvasLayer" index="1"]
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_dqvfi")
+
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer/Timer" method="_on_timeout"]
