@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhro1yt1lcsq"]
+[gd_scene load_steps=9 format=3 uid="uid://0ubdkxyc11ss"]
 
 [ext_resource type="PackedScene" path="res://LevelBase.tscn" id="1_56sh0"]
 [ext_resource type="Texture2D" uid="uid://bryg62ck40e6u" path="res://Assets/kenney_prototype-textures/PNG/Green/texture_09.png" id="2_wdxtl"]
+[ext_resource type="Script" uid="uid://di4udgkqcvljy" path="res://end_screen_loader.gd" id="3_2iak2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2iak2"]
 albedo_texture = ExtResource("2_wdxtl")
@@ -9,26 +10,37 @@ albedo_texture = ExtResource("2_wdxtl")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1eu64"]
 albedo_texture = ExtResource("2_wdxtl")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1eu64"]
+size = Vector3(1, 8, 1)
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_dv7lm"]
+
+[sub_resource type="Environment" id="Environment_wdxtl"]
+background_mode = 1
+background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
+
 [node name="Node3D2" instance=ExtResource("1_56sh0")]
 
 [node name="CSGBox3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06836343, 0, 0.025915146)
+visible = false
+use_collision = false
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSGBox3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.998247, 0.059184402, 0, -0.059184402, 0.998247, -6.2068357, 3.4613328, 5.0684276)
+[node name="CSGBox3D7" type="CSGBox3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 0.998247, 0.059184402, 0, -0.059184402, 0.998247, -6.275199, 3.4613328, 5.0943427)
 use_collision = true
 size = Vector3(1.9579544, 1, 3.6738892)
 material = SubResource("StandardMaterial3D_2iak2")
 
-[node name="Node3D" parent="." index="1"]
+[node name="Node3D" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49964082, 3.1199212, 19.411749)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." index="4"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.67266846, 2.0707202, 19.30976)
 use_collision = true
 size = Vector3(13.113647, 1, 0.64160156)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." index="5"]
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." index="6"]
 transform = Transform3D(-1, -8.742278e-08, 0, 8.742278e-08, -1, 0, 0, 0, 1, 0.69033015, 2.3831136, 19.149464)
 use_collision = true
 radius = 1.6704102
@@ -36,7 +48,7 @@ height = 0.38721874
 sides = 13
 cone = true
 
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." index="6"]
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." index="7"]
 transform = Transform3D(-0.21377268, -0.12827635, -0.9684247, -0.027650414, 0.99173844, -0.12526083, 0.97649205, 0, -0.21555349, 5.9914308, 1.7157242, 16.725239)
 use_collision = true
 polygon = PackedVector2Array(3.2171001, -0.2547648, 3.0207844, 0.7573674, 2.184101, 0.8438835, 3.1517868, 0.86432076)
@@ -44,7 +56,7 @@ mode = 1
 spin_degrees = 191.5
 spin_sides = 8
 
-[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="." index="7"]
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="." index="8"]
 transform = Transform3D(-0.9538503, 0.28038195, 0.107497334, 0.27861816, 0.9598885, -0.031399798, -0.111989394, 0, -0.9937095, 5.9914308, 1.7157242, 11.424508)
 use_collision = true
 polygon = PackedVector2Array(3.2171001, -0.2547648, 3.0207844, 0.7573674, 2.184101, 0.8438835, 3.1517868, 0.86432076)
@@ -52,7 +64,7 @@ mode = 1
 spin_degrees = 98.5
 spin_sides = 8
 
-[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="." index="8"]
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="." index="9"]
 transform = Transform3D(1.1114718, -0.15955435, 0.0313495, 0.18444473, 0.96559495, -0.020248525, -0.03100609, 0.024472319, 1.0033303, 0.85069394, 1.9054611, 11.570975)
 use_collision = true
 polygon = PackedVector2Array(3.2171001, -0.2547648, 3.0207844, 0.7573674, 2.184101, 0.8438835, 3.1517868, 0.86432076)
@@ -60,23 +72,23 @@ mode = 1
 spin_degrees = 98.5
 spin_sides = 8
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="." index="9"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="." index="10"]
 transform = Transform3D(-2.7315721e-08, 0.31598026, 0.94876575, 9.097326e-09, 0.94876575, -0.31598026, -0.6586567, -3.4850972e-15, -4.371139e-08, -7.9045196, 2.2843025, 15.31052)
 use_collision = true
 size = Vector3(13.113647, 1, 1.2524414)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="." index="10"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="." index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.870654, 2.0463457, 10.555179)
 use_collision = true
 size = Vector3(3.2855911, 1, 1.0317383)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="." index="11"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="." index="12"]
 transform = Transform3D(1, 0, 0, 0, 0.89990056, -0.43609515, 0, 0.43609515, 0.89990056, -6.5312986, 2.8163338, 8.334495)
 use_collision = true
 size = Vector3(2.6068802, 1, 3.6738892)
 material = SubResource("StandardMaterial3D_2iak2")
 
-[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="." index="12"]
+[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="." index="13"]
 transform = Transform3D(-0.095832616, -0.093143955, 0.99103016, -0.1674014, -0.97992384, -0.10828783, 0.9812203, -0.17627725, 0.07831626, 0.9105437, 3.9692864, 6.4380984)
 use_collision = true
 polygon = PackedVector2Array(3.299901, -0.38086653, 3.3175259, 0.71275043, 2.184101, 0.8438835, 3.7632189, 0.83467007)
@@ -85,7 +97,7 @@ spin_degrees = 110.6
 spin_sides = 8
 material = SubResource("StandardMaterial3D_1eu64")
 
-[node name="CSGPolygon3D5" type="CSGPolygon3D" parent="." index="13"]
+[node name="CSGPolygon3D5" type="CSGPolygon3D" parent="." index="14"]
 transform = Transform3D(-1.6977744, -0.2680108, 0.5889751, 0.23632637, -1.0412314, -0.30925667, 1.1686924, -0.17879055, 0.91814816, 0.36085796, 2.5124779, -4.8178067)
 use_collision = true
 polygon = PackedVector2Array(3.6549308, -1.6759205, 3.0207844, 0.7573674, 0.88887656, 0.8027958, 3.1517868, 0.86432076)
@@ -94,8 +106,25 @@ spin_degrees = 278.0
 spin_sides = 17
 material = SubResource("StandardMaterial3D_1eu64")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="." index="14"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="." index="15"]
 transform = Transform3D(0.7541977, -0.055625707, -0.65428716, -0.13446525, 0.9622079, -0.23680277, 0.6427326, 0.26657495, 0.71821517, -5.1848865, 3.8225398, 2.8546634)
 use_collision = true
 size = Vector3(1.3539772, 1, 3.6738892)
 material = SubResource("StandardMaterial3D_2iak2")
+
+[node name="Area3D" type="Area3D" parent="." index="16"]
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 0.2687378, 4.050211, -5.288185)
+script = ExtResource("3_2iak2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
+shape = SubResource("BoxShape3D_1eu64")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 46.237354, 0, 0, 0, 1, 0, 22.345306, 0)
+mesh = SubResource("RibbonTrailMesh_dv7lm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="17"]
+environment = SubResource("Environment_wdxtl")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnk62e1s4u8jk"]
+[gd_scene load_steps=9 format=3 uid="uid://c6hon07qews5w"]
 
 [ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="1_0ybpy"]
 [ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_67ogt"]
 [ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="3_ioglc"]
+[ext_resource type="Script" uid="uid://dv5abork6x5vg" path="res://Scenes/level_five_loader.gd" id="4_67ogt"]
 
 [sub_resource type="Environment" id="Environment_c1w88"]
 background_mode = 1
@@ -11,7 +12,12 @@ background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1gob"]
 albedo_texture = ExtResource("3_ioglc")
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ioglc"]
+size = Vector3(1, 8, 1)
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_j5435"]
+
+[node name="Node3D2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c1w88")
@@ -99,3 +105,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.146662, -5.9996624)
 use_collision = true
 inner_radius = 0.69
 outer_radius = 2.515
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.33400536, -18.080534, -17.90303)
+script = ExtResource("4_67ogt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
+shape = SubResource("BoxShape3D_ioglc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 46.237354, 0, 0, 0, 1, 0, 22.345306, 0)
+mesh = SubResource("RibbonTrailMesh_j5435")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

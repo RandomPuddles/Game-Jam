@@ -1,28 +1,53 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj4jxiwoq81k2"]
+[gd_scene load_steps=17 format=3 uid="uid://bj4jxiwoq81k2"]
 
 [ext_resource type="PackedScene" path="res://LevelBase.tscn" id="1_janhb"]
 [ext_resource type="Texture2D" uid="uid://dbodnvgs48p8s" path="res://Assets/kenney_prototype-textures/PNG/Green/texture_08.png" id="2_2tmas"]
+[ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="3_374uy"]
 [ext_resource type="Texture2D" uid="uid://cp7ilrk08jlnm" path="res://Assets/kenney_prototype-textures/PNG/Orange/texture_04.png" id="3_ghtom"]
 [ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="4_ghtom"]
+[ext_resource type="Script" uid="uid://w1jkkyc4du7s" path="res://level_seven_loader.gd" id="5_qkh2e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghtom"]
 albedo_texture = ExtResource("2_2tmas")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qng2t"]
+albedo_texture = ExtResource("3_374uy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6y5o"]
+albedo_texture = ExtResource("3_374uy")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkh2e"]
 albedo_texture = ExtResource("3_ghtom")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgpeh"]
+albedo_texture = ExtResource("3_374uy")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ostm"]
 albedo_texture = ExtResource("2_2tmas")
 uv1_scale = Vector3(5, 5, 5)
 uv1_offset = Vector3(1, 0, 0)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3vc0"]
+albedo_texture = ExtResource("3_374uy")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_374uy"]
+size = Vector3(4.7855835, 37.65735, 5.7025146)
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_qng2t"]
+
+[sub_resource type="Environment" id="Environment_qkh2e"]
+background_mode = 1
+background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
+
 [node name="Node3D2" instance=ExtResource("1_janhb")]
 
 [node name="CSGBox3D" parent="." index="0"]
 transform = Transform3D(4.011585, 0, 0, 0, 1, 0, 0, 0, 2.9635735, 0.142025, -2.0776644, -0.14401627)
+visible = false
+use_collision = false
 
 [node name="Node3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.78983, 12.717035, 11.133115)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.604513, 12.717035, 11.514514)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.015951, 7.6970425, -13.052057)
@@ -32,6 +57,7 @@ material = SubResource("StandardMaterial3D_ghtom")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 0.087155804, -0.9961947, 0, 0.9961947, 0.087155804, 17.415678, 8.683645, 2.5150313)
+material_override = SubResource("StandardMaterial3D_qng2t")
 use_collision = true
 radius = 0.17773438
 height = 20.047943
@@ -44,6 +70,7 @@ height = 20.047943
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.820976, 11.101773, 11.40911)
+material_override = SubResource("StandardMaterial3D_o6y5o")
 use_collision = true
 inner_radius = 1.1091297
 outer_radius = 2.0863135
@@ -59,9 +86,10 @@ smooth_faces = false
 material = SubResource("StandardMaterial3D_qkh2e")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." index="8"]
-transform = Transform3D(0.01713185, -0.9814777, -0.19080892, 0.003330085, -0.19077988, 0.9816271, -0.9998477, -0.0174525, -8.340523e-09, -23.15573, -0.45035243, -13.557248)
+transform = Transform3D(0.01713185, -0.9814777, -0.19080892, 0.003330085, -0.19077988, 0.9816271, -0.9998477, -0.0174525, -8.340523e-09, -0.43362808, 3.966375, -13.153207)
+material_override = SubResource("StandardMaterial3D_hgpeh")
 use_collision = true
-size = Vector3(5.4758835, 89.44641, 0.15283203)
+size = Vector3(5.4758835, 43.144592, 0.15283203)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="." index="9"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15.134415, 8.021546, -7.404792)
@@ -101,6 +129,7 @@ size = Vector3(10.627167, 89.44641, 0.15283203)
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." index="13"]
 transform = Transform3D(1, 0, 0, 0, 0.087155804, -0.9961947, 0, 0.9961947, 0.087155804, -22.302507, 1.9069211, -1.6578832)
+material_override = SubResource("StandardMaterial3D_h3vc0")
 use_collision = true
 radius = 0.17773438
 height = 32.375755
@@ -112,3 +141,20 @@ radius = 0.17773438
 height = 26.736351
 
 [node name="TimerLabel" parent="." index="14" instance=ExtResource("4_ghtom")]
+
+[node name="Area3D" type="Area3D" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.217882, -4.8928757, 18.222256)
+script = ExtResource("5_qkh2e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, 0.7311096, 11.328674, 0.21990967)
+shape = SubResource("BoxShape3D_374uy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 46.237354, 0, 0, 0, 1, 0, 7.8136406, -0.07886505)
+mesh = SubResource("RibbonTrailMesh_qng2t")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="16"]
+environment = SubResource("Environment_qkh2e")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

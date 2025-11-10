@@ -13,7 +13,7 @@ background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
 albedo_texture = ExtResource("3_jgmfv")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d6wks"]
-size = Vector3(1, 8, 1)
+size = Vector3(1, 19.328613, 1)
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_jgmfv"]
 
@@ -89,15 +89,15 @@ use_collision = true
 size = Vector3(3, 1, 3.8618164)
 
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.492912, 8.753219, -7.8397465)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.492912, 23.19398, -7.8397465)
 script = ExtResource("4_ec0dx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.164307, 0)
 shape = SubResource("BoxShape3D_d6wks")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 7.3512816, 0, 0, 0, 1, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 24.407393, 0, 0, 0, 1, 0, 3, 0)
 mesh = SubResource("RibbonTrailMesh_jgmfv")
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

@@ -63,19 +63,19 @@ material_override = SubResource("StandardMaterial3D_v1gob")
 use_collision = true
 size = Vector3(3, 1, 2.1088867)
 
-[node name="Marble2" parent="." instance=ExtResource("2_foqkk")]
-
-[node name="Area3D" type="Area3D" parent="Marble2"]
+[node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.989872, 2.92091, 20.299093)
 script = ExtResource("5_foqkk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Marble2/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
 shape = SubResource("BoxShape3D_8bxty")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Marble2/Area3D/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 46.237354, 0, 0, 0, 1, 0, 22.345306, 0)
 mesh = SubResource("RibbonTrailMesh_ebjku")
+
+[node name="Marble2" parent="." instance=ExtResource("2_foqkk")]
 
 [node name="Floor3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0.52651954)
@@ -107,4 +107,4 @@ material_override = SubResource("StandardMaterial3D_v1gob")
 use_collision = true
 size = Vector3(3, 1, 2.1088867)
 
-[connection signal="body_entered" from="Marble2/Area3D" to="Marble2/Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
