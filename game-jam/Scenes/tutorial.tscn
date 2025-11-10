@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw27jjvg3cwhv"]
+
+[ext_resource type="Script" uid="uid://rpkhnhbbn1hr" path="res://Scenes/menu_button.gd" id="1_ka2pi"]
+[ext_resource type="Texture2D" uid="uid://1gwboiiortc" path="res://Assets/menuLogo.png" id="2_feyax"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 292.0
+offset_bottom = 164.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+visible = false
+offset_right = 47.0
+offset_bottom = 43.0
+text = "Once upon a time there was a marble"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 14.0
+offset_top = 35.0
+offset_right = 200.0
+offset_bottom = 154.0
+theme_override_font_sizes/normal_font_size = 10
+text = "If I may be so bold ​, the goal of this game is to move the orb across broken geometry, landing in the beacon within the 10-second timer. You must complete the level all at once or restart! 
+
+The controls are simple!
+
+WASD to move the orb. 
+Press R to reload the level.
+Press Space to do a teeny itty bitty baby hop. 
+Shift is special; holding down Shift slows time. Releasing the shift will give you a little speed boost in the direction the ball is currently moving. "
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 214.0
+offset_top = 35.0
+offset_right = 282.0
+offset_bottom = 154.0
+theme_override_font_sizes/normal_font_size = 10
+text = "You have 10 seconds to save the world, before it all breaks apart.
+
+All at once."
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 16.82243
+offset_top = 7.476635
+offset_right = 147.82243
+offset_bottom = 38.476635
+text = "Return to menu"
+script = ExtResource("1_ka2pi")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer"]
+scale = Vector2(0.535, 0.535)
+transform = Transform2D(0.535, 0, 0, 0.535, 0, 0)
+
+[node name="Logo" type="TextureRect" parent="CanvasLayer/CanvasLayer"]
+offset_left = 399.99997
+offset_top = 7.4766355
+offset_right = 545.71716
+offset_bottom = 56.074764
+texture = ExtResource("2_feyax")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]
