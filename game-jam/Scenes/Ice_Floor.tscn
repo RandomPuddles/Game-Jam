@@ -1,18 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://qd6igivn3glq"]
+[gd_scene load_steps=4 format=3 uid="uid://qd6igivn3glq"]
 
-[ext_resource type="Texture2D" uid="uid://cddeforaifwce" path="res://Assets/kenney_prototype-textures/PNG/Light/texture_02.png" id="1_s3w6a"]
-[ext_resource type="Script" uid="uid://d32d3sc0jba0a" path="res://Code/ice_area_3d.gd" id="2_s5kxe"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5kxe"]
-albedo_texture = ExtResource("1_s3w6a")
+[ext_resource type="Script" path="res://Code/ice_area_3d.gd" id="2_s5kxe"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t7wa0"]
 size = Vector3(12.934204, 0.81140137, 12.903931)
 
-[node name="Node3D" type="Node3D" groups=["Ice"]]
+[sub_resource type="BoxMesh" id="BoxMesh_la4cf"]
+
+[node name="Node3D3" type="Node3D" groups=["Ice"]]
 
 [node name="Icey_Floor" type="CSGBox3D" parent="." groups=["Ice"]]
 transparency = 1.0
+use_collision = true
 size = Vector3(13, 1, 13)
 
 [node name="Area3D" type="Area3D" parent="Icey_Floor" groups=["Ice"]]
@@ -22,3 +21,7 @@ script = ExtResource("2_s5kxe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026062012, 0.48413873, -0.02166748)
 shape = SubResource("BoxShape3D_t7wa0")
 debug_color = Color(14.807277, 0, 18.892157, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Icey_Floor/Area3D/CollisionShape3D"]
+transform = Transform3D(12.858711, 0, 0, 0, 0.80149466, 0, 0, 0, 12.90934, 0, -0.39635754, 0)
+mesh = SubResource("BoxMesh_la4cf")

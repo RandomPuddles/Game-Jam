@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://y57ny5vbns0r"]
+[gd_scene load_steps=8 format=3 uid="uid://bj4jxiwoq81k2"]
 
 [ext_resource type="PackedScene" path="res://LevelBase.tscn" id="1_janhb"]
 [ext_resource type="Texture2D" uid="uid://dbodnvgs48p8s" path="res://Assets/kenney_prototype-textures/PNG/Green/texture_08.png" id="2_2tmas"]
-[ext_resource type="PackedScene" uid="uid://cunlbd1wf56mu" path="res://Scenes/Ice_Floor.tscn" id="3_6ostm"]
 [ext_resource type="Texture2D" uid="uid://cp7ilrk08jlnm" path="res://Assets/kenney_prototype-textures/PNG/Orange/texture_04.png" id="3_ghtom"]
+[ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="4_ghtom"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghtom"]
 albedo_texture = ExtResource("2_2tmas")
@@ -111,8 +111,4 @@ use_collision = true
 radius = 0.17773438
 height = 26.736351
 
-[node name="Node3D2" parent="." index="14" instance=ExtResource("3_6ostm")]
-transform = Transform3D(0.53912866, 0, 0, 0, 5.261123, 0, 0, 0, 2.2562966, 15.287281, 6.3470736, 0)
-
-[node name="Node3D3" parent="." index="15" instance=ExtResource("3_6ostm")]
-transform = Transform3D(3.742131, 0, 0, 0, 14.348746, 0, 0, 0, 0.49757525, -4.1418753, 6.3470736, -12.197199)
+[node name="TimerLabel" parent="." index="14" instance=ExtResource("4_ghtom")]

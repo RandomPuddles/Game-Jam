@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy5u7g05w3xk0"]
+[gd_scene load_steps=10 format=3 uid="uid://cy5u7g05w3xk0"]
 
 [ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="1_voxbv"]
 [ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_nf86x"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://qd6igivn3glq" path="res://Scenes/Ice_Floor.tscn" id="4_oo467"]
 [ext_resource type="PackedScene" uid="uid://b2heri7rvl10r" path="res://Scenes/physicsBox.tscn" id="5_wb6b3"]
 [ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="6_4bret"]
-[ext_resource type="Script" uid="uid://jjgsdaelwgpg" path="res://Code/level_two_loader.gd" id="7_nf86x"]
 
 [sub_resource type="Environment" id="Environment_c1w88"]
 background_mode = 1
@@ -52,7 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.71531, 0)
 
 [node name="Level_Two_Loader" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8883715, 0.5123389, 0)
-script = ExtResource("7_nf86x")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level_Two_Loader"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1585999)

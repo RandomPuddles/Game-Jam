@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnqthfp4klsvl"]
+[gd_scene load_steps=10 format=3 uid="uid://22l3o4opsj6j"]
 
 [ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="1_lvnx0"]
 [ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_owsbw"]
 [ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="3_naapn"]
 [ext_resource type="PackedScene" uid="uid://dl2h3gy7642d5" path="res://Scenes/Trampoline.tscn" id="4_owsbw"]
+[ext_resource type="Script" uid="uid://dywiayc2vi656" path="res://Scenes/level_three_loader.gd" id="5_naapn"]
 
 [sub_resource type="Environment" id="Environment_c1w88"]
 background_mode = 1
@@ -12,7 +13,12 @@ background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1gob"]
 albedo_texture = ExtResource("3_naapn")
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_pm6fr"]
+size = Vector3(1, 8, 1)
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_vswc5"]
+
+[node name="Node3D2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c1w88")
@@ -43,3 +49,17 @@ size = Vector3(3, 1, 6)
 
 [node name="Trampoline" parent="." instance=ExtResource("4_owsbw")]
 transform = Transform3D(0.33452106, 0, 0, 0, 1, 0, 0, 0, 0.29747495, 0, -5.752195, -8.890415)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17278862, 1.8451324, -16.469488)
+script = ExtResource("5_naapn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
+shape = SubResource("BoxShape3D_pm6fr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 7.3512816, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("RibbonTrailMesh_vswc5")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

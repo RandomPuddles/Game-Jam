@@ -1,17 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8aotsbwfhdhm"]
+[gd_scene load_steps=9 format=3 uid="uid://b8aotsbwfhdhm"]
 
-[ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="1_b8vww"]
-[ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_pence"]
-[ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="6_pdu03"]
+[ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="1_fpcyv"]
+[ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_ec0dx"]
+[ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="3_jgmfv"]
+[ext_resource type="Script" uid="uid://du01mdis1libk" path="res://Code/level_two_loader (2).gd" id="4_ec0dx"]
 
 [sub_resource type="Environment" id="Environment_c1w88"]
 background_mode = 1
 background_color = Color(0.37963477, 0.6200828, 0.81055135, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1gob"]
-albedo_texture = ExtResource("1_b8vww")
+albedo_texture = ExtResource("3_jgmfv")
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6wks"]
+size = Vector3(1, 8, 1)
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_jgmfv"]
+
+[node name="Node3D2" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c1w88")
@@ -19,14 +25,14 @@ environment = SubResource("Environment_c1w88")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.75880545, 2.8469987e-08, -0.65131736, 0.65131736, -3.316844e-08, 0.75880545, 0, -1, -4.371139e-08, 0, 15.873002, 0)
 
-[node name="TimerLabel" parent="." instance=ExtResource("6_pdu03")]
+[node name="TimerLabel" parent="." instance=ExtResource("1_fpcyv")]
 
 [node name="Camera3D" type="Camera3D" parent="." groups=["Camera"]]
 transform = Transform3D(0.7071068, 0.35141364, -0.6136029, 0, 0.8677655, 0.49697393, 0.7071068, -0.35141364, 0.6136029, -23.357317, 17.101988, 13.786224)
 projection = 1
 size = 18.76
 
-[node name="Marble" parent="." instance=ExtResource("2_pence")]
+[node name="Marble" parent="." instance=ExtResource("2_ec0dx")]
 
 [node name="Floor3" type="CSGBox3D" parent="."]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.5188684, 2.433329, -13.1312065)
@@ -81,3 +87,17 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -14.
 material_override = SubResource("StandardMaterial3D_v1gob")
 use_collision = true
 size = Vector3(3, 1, 3.8618164)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.492912, 8.753219, -7.8397465)
+script = ExtResource("4_ec0dx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
+shape = SubResource("BoxShape3D_d6wks")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 7.3512816, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("RibbonTrailMesh_jgmfv")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
