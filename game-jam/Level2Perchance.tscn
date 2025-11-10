@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://y57ny5vbns0r"]
+
+[ext_resource type="PackedScene" path="res://LevelBase.tscn" id="1_janhb"]
+[ext_resource type="Texture2D" uid="uid://dbodnvgs48p8s" path="res://Assets/kenney_prototype-textures/PNG/Green/texture_08.png" id="2_2tmas"]
+[ext_resource type="PackedScene" uid="uid://cunlbd1wf56mu" path="res://Scenes/Ice_Floor.tscn" id="3_6ostm"]
+[ext_resource type="Texture2D" uid="uid://cp7ilrk08jlnm" path="res://Assets/kenney_prototype-textures/PNG/Orange/texture_04.png" id="3_ghtom"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghtom"]
+albedo_texture = ExtResource("2_2tmas")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkh2e"]
+albedo_texture = ExtResource("3_ghtom")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ostm"]
+albedo_texture = ExtResource("2_2tmas")
+uv1_scale = Vector3(5, 5, 5)
+uv1_offset = Vector3(1, 0, 0)
+
+[node name="Node3D2" instance=ExtResource("1_janhb")]
+
+[node name="CSGBox3D" parent="." index="0"]
+transform = Transform3D(4.011585, 0, 0, 0, 1, 0, 0, 0, 2.9635735, 0.142025, -2.0776644, -0.14401627)
+
+[node name="Node3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.78983, 12.717035, 11.133115)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.015951, 7.6970425, -13.052057)
+use_collision = true
+size = Vector3(56.70285, 14.182617, 3.1315918)
+material = SubResource("StandardMaterial3D_ghtom")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 0.087155804, -0.9961947, 0, 0.9961947, 0.087155804, 17.415678, 8.683645, 2.5150313)
+use_collision = true
+radius = 0.17773438
+height = 20.047943
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7934265, 0, 0)
+use_collision = true
+radius = 0.17773438
+height = 20.047943
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.820976, 11.101773, 11.40911)
+use_collision = true
+inner_radius = 1.1091297
+outer_radius = 2.0863135
+
+[node name="Volcano" type="CSGTorus3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715574, 0, 0.08715574, 0.9961947, -20.32233, -1.0271466, 17.569935)
+use_collision = true
+inner_radius = 0.001
+outer_radius = 12.361052
+sides = 13
+ring_sides = 3
+smooth_faces = false
+material = SubResource("StandardMaterial3D_qkh2e")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." index="8"]
+transform = Transform3D(0.01713185, -0.9814777, -0.19080892, 0.003330085, -0.19077988, 0.9816271, -0.9998477, -0.0174525, -8.340523e-09, -23.15573, -0.45035243, -13.557248)
+use_collision = true
+size = Vector3(5.4758835, 89.44641, 0.15283203)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="." index="9"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 15.134415, 8.021546, -7.404792)
+use_collision = true
+polygon = PackedVector2Array(0.14149189, -0.2883165, 1.3274226, -0.17163658, 1.4869823, 2.095004, 1.8700461, -0.809021)
+mode = 1
+spin_degrees = 114.8
+spin_sides = 3
+smooth_faces = true
+material = SubResource("StandardMaterial3D_6ostm")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="." index="10"]
+transform = Transform3D(-0.10469839, 0, 2.9981725, 0, 3, 0, -2.9981725, 0, -0.10469839, -15.034836, 2.10458, -7.404792)
+use_collision = true
+polygon = PackedVector2Array(0.19061995, -0.39377642, 2.9682364, -0.18829298, 5.7838807, 4.547867, 4.489988, -0.92951965)
+mode = 1
+spin_degrees = 114.8
+spin_sides = 7
+smooth_faces = true
+material = SubResource("StandardMaterial3D_6ostm")
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="." index="11"]
+transform = Transform3D(-0.03489941, 0.9944495, -0.09925881, -8.68277e-09, -0.09931931, -0.9950556, -0.99939084, -0.034726854, 0.0034661938, -134.6634, 42.54088, 81.5061)
+use_collision = true
+polygon = PackedVector2Array(2.6801481, -1.7868233, 7.1548176, 84.94847, 4.5567827, 7.8195453, 4.463414, -1.8542867)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 17
+smooth_faces = true
+material = SubResource("StandardMaterial3D_6ostm")
+
+[node name="InvisibleWall" type="CSGBox3D" parent="." index="12"]
+transform = Transform3D(0.01713185, -0.9814777, -0.19080892, 0.003330085, -0.19077988, 0.9816271, -0.9998477, -0.0174525, -8.340523e-09, -23.199854, 7.6438675, -10.981998)
+visible = false
+use_collision = true
+size = Vector3(10.627167, 89.44641, 0.15283203)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="." index="13"]
+transform = Transform3D(1, 0, 0, 0, 0.087155804, -0.9961947, 0, 0.9961947, 0.087155804, -22.302507, 1.9069211, -1.6578832)
+use_collision = true
+radius = 0.17773438
+height = 32.375755
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCylinder3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7934265, 2.7114153, 0)
+use_collision = true
+radius = 0.17773438
+height = 26.736351
+
+[node name="Node3D2" parent="." index="14" instance=ExtResource("3_6ostm")]
+transform = Transform3D(0.53912866, 0, 0, 0, 5.261123, 0, 0, 0, 2.2562966, 15.287281, 6.3470736, 0)
+
+[node name="Node3D3" parent="." index="15" instance=ExtResource("3_6ostm")]
+transform = Transform3D(3.742131, 0, 0, 0, 14.348746, 0, 0, 0, 0.49757525, -4.1418753, 6.3470736, -12.197199)
