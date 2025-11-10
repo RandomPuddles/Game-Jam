@@ -1,21 +1,93 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm4n6qoku25nu"]
+[gd_scene load_steps=13 format=3 uid="uid://dm4n6qoku25nu"]
 
 [ext_resource type="Script" uid="uid://cs5eqn67cpffk" path="res://Code/start_button.gd" id="1_c4tk2"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_c4tk2"]
+[ext_resource type="Texture2D" uid="uid://cgg74t41j3s66" path="res://Assets/menuStartBtn.png" id="1_rmbjf"]
+[ext_resource type="Texture2D" uid="uid://oed4p7d3rdds" path="res://Assets/menuTutorialBtn.png" id="3_anlgx"]
+[ext_resource type="Script" uid="uid://cyq2dghjajl7r" path="res://Scenes/tutorial_button.gd" id="3_b7rmo"]
+[ext_resource type="Script" uid="uid://bcvxjvlapt7j" path="res://Scenes/level_slct_button.gd" id="5_xvotp"]
+[ext_resource type="Texture2D" uid="uid://djsnhkl3neaks" path="res://Assets/menuLevelBtn.png" id="5_ymwpv"]
+[ext_resource type="Texture2D" uid="uid://m3bmju84vl2i" path="res://Assets/menuSettingBtn.png" id="7_1o627"]
+[ext_resource type="Script" uid="uid://c4ltljwhbacde" path="res://Scenes/settings_button.gd" id="8_2ey7y"]
+[ext_resource type="Texture2D" uid="uid://dilpf3or6cvbt" path="res://Assets/menuCreditsBtn.png" id="9_u8ev7"]
+[ext_resource type="Script" uid="uid://c686mhung17ax" path="res://Scenes/credits_button.gd" id="10_1o627"]
+[ext_resource type="Texture2D" uid="uid://cxdl3w7nwitpp" path="res://Assets/menuBG.png" id="11_2ey7y"]
+[ext_resource type="Texture2D" uid="uid://1gwboiiortc" path="res://Assets/menuLogo.png" id="12_u8ev7"]
 
 [node name="MainMenu" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(0.22, 0.22)
+transform = Transform2D(0.22, 0, 0, 0.22, 0, 0)
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 130.00002
-offset_top = 68.00001
-offset_right = 180.00002
-offset_bottom = 99.00001
-scale = Vector2(0.43999878, 0.43999878)
-text = "Start"
-icon = SubResource("ImageTexture_c4tk2")
+[node name="StartButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 516.9297
+offset_top = 320.97888
+offset_right = 716.9297
+offset_bottom = 407.97888
+texture_normal = ExtResource("1_rmbjf")
+stretch_mode = 0
 script = ExtResource("1_c4tk2")
 
+[node name="TutorialButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 500.0625
+offset_top = 393.26855
+offset_right = 732.0625
+offset_bottom = 480.26855
+texture_normal = ExtResource("3_anlgx")
+script = ExtResource("3_b7rmo")
+
+[node name="LevelSlctButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 463.917
+offset_top = 465.5575
+offset_right = 800.917
+offset_bottom = 552.55756
+texture_normal = ExtResource("5_ymwpv")
+script = ExtResource("5_xvotp")
+
+[node name="SettingsButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 490.42407
+offset_top = 557.124
+offset_right = 827.4242
+offset_bottom = 644.1241
+texture_normal = ExtResource("7_1o627")
+script = ExtResource("8_2ey7y")
+
+[node name="CreditsButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 507.2915
+offset_top = 643.8711
+offset_right = 844.2915
+offset_bottom = 730.8711
+texture_normal = ExtResource("9_u8ev7")
+script = ExtResource("10_1o627")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+visible = false
+offset_left = 95.0
+offset_top = 96.00001
+offset_right = 303.0
+offset_bottom = 191.0
+scale = Vector2(0.43999878, 0.43999878)
+icon = ExtResource("1_rmbjf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 289.0
+offset_bottom = 163.0
+texture = ExtResource("11_2ey7y")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 51.0
+offset_top = 3.0
+offset_right = 224.75461
+offset_bottom = 101.0
+texture = ExtResource("12_u8ev7")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="pressed" from="CanvasLayer/StartButton" to="CanvasLayer/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/TutorialButton" to="CanvasLayer/TutorialButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSlctButton" to="CanvasLayer/LevelSlctButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsButton" to="CanvasLayer/SettingsButton" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/CreditsButton" to="CanvasLayer/CreditsButton" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer/Button" method="_on_pressed"]

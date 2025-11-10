@@ -1,6 +1,5 @@
 extends TextureButton
 
-var level_one: PackedScene = preload("res://Scenes/Actual_Level_One.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,8 +7,9 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	pass
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_packed(level_one)
+	# select level screen
+	pass
