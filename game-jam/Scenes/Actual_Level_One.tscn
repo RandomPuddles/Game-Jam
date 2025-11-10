@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://chd8hab4hscg2" path="res://Scenes/actual_level_one.gd" id="1_jgmfv"]
 [ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_ec0dx"]
 [ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="3_jgmfv"]
-[ext_resource type="Script" uid="uid://du01mdis1libk" path="res://Code/level_two_loader (2).gd" id="4_ec0dx"]
+[ext_resource type="Script" uid="uid://dywiayc2vi656" path="res://Scenes/level_three_loader.gd" id="5_jgmfv"]
 
 [sub_resource type="Environment" id="Environment_c1w88"]
 background_mode = 1
@@ -16,7 +16,7 @@ albedo_texture = ExtResource("3_jgmfv")
 [sub_resource type="BoxShape3D" id="BoxShape3D_d6wks"]
 size = Vector3(1, 8, 1)
 
-[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_jgmfv"]
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_pnoj3"]
 
 [node name="Node3D2" type="Node3D"]
 script = ExtResource("1_jgmfv")
@@ -90,16 +90,16 @@ material_override = SubResource("StandardMaterial3D_v1gob")
 use_collision = true
 size = Vector3(3, 1, 3.8618164)
 
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.492912, 23.19398, -7.8397465)
-script = ExtResource("4_ec0dx")
+[node name="Area3D2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.50466, 8.74321, -7.8561096)
+script = ExtResource("5_jgmfv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.492912, 13.253462, -7.8397465)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.5, 0)
 shape = SubResource("BoxShape3D_d6wks")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 24.407393, 0, 0, 0, 1, 0, 3, 0)
-mesh = SubResource("RibbonTrailMesh_jgmfv")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D2/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 7.3512816, 0, 0, 0, 1, 0, 3, 0)
+mesh = SubResource("RibbonTrailMesh_pnoj3")
 
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D2" to="Area3D2" method="_on_body_entered"]
