@@ -21,22 +21,23 @@ transform = Transform2D(0.22, 0, 0, 0.22, 0, 0)
 
 [node name="StartButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 516.9297
-offset_top = 320.97888
+offset_top = 407.34277
 offset_right = 716.9297
-offset_bottom = 407.97888
+offset_bottom = 494.34277
 texture_normal = ExtResource("1_rmbjf")
 stretch_mode = 0
 script = ExtResource("1_c4tk2")
 
 [node name="TutorialButton" type="TextureButton" parent="CanvasLayer"]
-offset_left = 500.0625
-offset_top = 393.26855
-offset_right = 732.0625
-offset_bottom = 480.26855
+offset_left = 504.6079
+offset_top = 511.44995
+offset_right = 736.6079
+offset_bottom = 598.44995
 texture_normal = ExtResource("3_anlgx")
 script = ExtResource("3_b7rmo")
 
 [node name="LevelSlctButton" type="TextureButton" parent="CanvasLayer"]
+visible = false
 offset_left = 463.917
 offset_top = 465.5575
 offset_right = 800.917
@@ -45,6 +46,7 @@ texture_normal = ExtResource("5_ymwpv")
 script = ExtResource("5_xvotp")
 
 [node name="SettingsButton" type="TextureButton" parent="CanvasLayer"]
+visible = false
 offset_left = 490.42407
 offset_top = 557.124
 offset_right = 827.4242
@@ -54,9 +56,9 @@ script = ExtResource("8_2ey7y")
 
 [node name="CreditsButton" type="TextureButton" parent="CanvasLayer"]
 offset_left = 507.2915
-offset_top = 643.8711
-offset_right = 844.2915
-offset_bottom = 730.8711
+offset_top = 616.5984
+offset_right = 761.2915
+offset_bottom = 703.5984
 texture_normal = ExtResource("9_u8ev7")
 script = ExtResource("10_1o627")
 
@@ -77,10 +79,10 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = 51.0
-offset_top = 3.0
-offset_right = 224.75461
-offset_bottom = 101.0
+offset_left = 52.0
+offset_top = 6.0
+offset_right = 225.75461
+offset_bottom = 77.0
 texture = ExtResource("12_u8ev7")
 expand_mode = 1
 stretch_mode = 4
