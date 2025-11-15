@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://dyjf86oieepcf"]
 
-[ext_resource type="Script" uid="uid://c1hyvrwrml88r" path="res://Scenes/level_four.gd" id="1_8bxty"]
+[ext_resource type="Script" uid="uid://c1hyvrwrml88r" path="res://Code/level_four.gd" id="1_8bxty"]
 [ext_resource type="PackedScene" uid="uid://bl5ixt04n54dm" path="res://Scenes/Timer.tscn" id="1_yw85p"]
 [ext_resource type="PackedScene" uid="uid://y4sh7ttbpw7h" path="res://Scenes/Marble.tscn" id="2_foqkk"]
 [ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="3_8bxty"]
 [ext_resource type="PackedScene" uid="uid://qd6igivn3glq" path="res://Scenes/Ice_Floor.tscn" id="4_yw85p"]
-[ext_resource type="Script" uid="uid://kiia7kibnhqr" path="res://Scenes/level_loader_four.gd" id="5_foqkk"]
+[ext_resource type="Script" uid="uid://kiia7kibnhqr" path="res://Code/level_loader_four.gd" id="5_foqkk"]
 
 [sub_resource type="Environment" id="Environment_c1w88"]
 background_mode = 1

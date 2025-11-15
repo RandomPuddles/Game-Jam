@@ -7,6 +7,7 @@ func _ready() -> void:
 	audio_player.stream = music_loop
 	add_child(audio_player)
 	audio_player.finished.connect(func(): audio_player.queue_free())
+	audio_player.volume_db = .1
 	audio_player.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,10 +1,10 @@
 [gd_scene load_steps=22 format=3 uid="uid://d1avqd2r2q2yr"]
 
-[ext_resource type="PackedScene" path="res://LevelBase.tscn" id="1_ximf7"]
-[ext_resource type="Script" uid="uid://q6ejvupv57c2" path="res://level_one_1.gd" id="2_dqvfi"]
+[ext_resource type="PackedScene" uid="uid://bkraajm87mvvc" path="res://Scenes/LevelBase.tscn" id="1_ximf7"]
+[ext_resource type="Script" uid="uid://q6ejvupv57c2" path="res://Code/level_one_1.gd" id="2_dqvfi"]
 [ext_resource type="Texture2D" uid="uid://ccmvlinbvdh24" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_02.png" id="2_wlcyd"]
-[ext_resource type="Script" uid="uid://ovv2gmil8xg6" path="res://level_eight_loader.gd" id="3_0lrvd"]
-[ext_resource type="Script" uid="uid://b2g15r388wxgi" path="res://kevin_timer.gd" id="4_wlcyd"]
+[ext_resource type="Script" uid="uid://ovv2gmil8xg6" path="res://Code/level_eight_loader.gd" id="3_0lrvd"]
+[ext_resource type="Script" uid="uid://b2g15r388wxgi" path="res://Code/kevin_timer.gd" id="4_wlcyd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqvfi"]
 albedo_texture = ExtResource("2_wlcyd")

@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://cs5eqn67cpffk" path="res://Code/start_button.gd" id="1_c4tk2"]
 [ext_resource type="Texture2D" uid="uid://cgg74t41j3s66" path="res://Assets/menuStartBtn.png" id="1_rmbjf"]
 [ext_resource type="Texture2D" uid="uid://oed4p7d3rdds" path="res://Assets/menuTutorialBtn.png" id="3_anlgx"]
-[ext_resource type="Script" uid="uid://cyq2dghjajl7r" path="res://Scenes/tutorial_button.gd" id="3_b7rmo"]
-[ext_resource type="Script" uid="uid://bcvxjvlapt7j" path="res://Scenes/level_slct_button.gd" id="5_xvotp"]
+[ext_resource type="Script" uid="uid://cyq2dghjajl7r" path="res://Code/tutorial_button.gd" id="3_b7rmo"]
+[ext_resource type="Script" uid="uid://bcvxjvlapt7j" path="res://Code/level_slct_button.gd" id="5_xvotp"]
 [ext_resource type="Texture2D" uid="uid://djsnhkl3neaks" path="res://Assets/menuLevelBtn.png" id="5_ymwpv"]
 [ext_resource type="Texture2D" uid="uid://m3bmju84vl2i" path="res://Assets/menuSettingBtn.png" id="7_1o627"]
-[ext_resource type="Script" uid="uid://c4ltljwhbacde" path="res://Scenes/settings_button.gd" id="8_2ey7y"]
+[ext_resource type="Script" uid="uid://c4ltljwhbacde" path="res://Code/settings_button.gd" id="8_2ey7y"]
 [ext_resource type="Texture2D" uid="uid://dilpf3or6cvbt" path="res://Assets/menuCreditsBtn.png" id="9_u8ev7"]
-[ext_resource type="Script" uid="uid://c686mhung17ax" path="res://Scenes/credits_button.gd" id="10_1o627"]
+[ext_resource type="Script" uid="uid://c686mhung17ax" path="res://Code/credits_button.gd" id="10_u8ev7"]
 [ext_resource type="Texture2D" uid="uid://cxdl3w7nwitpp" path="res://Assets/menuBG.png" id="11_2ey7y"]
 [ext_resource type="Texture2D" uid="uid://1gwboiiortc" path="res://Assets/menuLogo.png" id="12_u8ev7"]
 
@@ -60,7 +60,7 @@ offset_top = 616.5984
 offset_right = 761.2915
 offset_bottom = 703.5984
 texture_normal = ExtResource("9_u8ev7")
-script = ExtResource("10_1o627")
+script = ExtResource("10_u8ev7")
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 visible = false
