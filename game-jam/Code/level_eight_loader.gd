@@ -1,6 +1,6 @@
 extends Area3D
 
-var level: PackedScene = preload("res://Level3 Mebe.tscn")
+var level: PackedScene = preload("res://Scenes/Level3 Mebe.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
